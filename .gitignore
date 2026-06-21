@@ -1,0 +1,25 @@
+# .NET build output
+bin/
+obj/
+*.user
+.vs/
+
+# Secrets / environment-specific config
+appsettings.Development.json
+appsettings.*.local.json
+*.env
+.env
+
+# Tooling/editor noise
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+
+# Claude Code local state (if you don't want it versioned)
+.claude/
+
+# Test results
+TestResults/

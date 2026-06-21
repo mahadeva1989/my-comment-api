@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Aspire.AppHost.Sdk wires up all the Aspire orchestration magic:
+       code-gen for Projects.*, dashboard launch, container management -->
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.3.1" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1" />
+    <!-- Infrastructure integrations — spin up Postgres & Redis containers -->
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.3.1" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.3.1" />
+
+    <!-- Reference our API so Aspire generates Projects.my_comment_api -->
+    <ProjectReference Include="..\my-comment-api\my-comment-api.csproj" />
+  </ItemGroup>
+
+</Project>

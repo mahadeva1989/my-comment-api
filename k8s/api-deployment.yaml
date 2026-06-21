@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: comments-api
+  template:
+    metadata:
+      labels:
+        app: comments-api
+    spec:
+      containers:
+        - name: comments-api
+          image: commentsappregistry.azurecr.io/comments-api:v6
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              value: "Host=postgres-service;Port=5432;Database=commentsdb;Username=postgres;Password=postgres"
+            - name: JwtSettings__SecretKey
+              value: "your-super-secret-key-that-is-at-least-32-characters"
+            - name: JwtSettings__Issuer
+              value: "CommentsApi"
+            - name: JwtSettings__Audience
+              value: "CommentsApiUsers"
+            - name: JwtSettings__ExpiryInMinutes
+              value: "60"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comments-api-service
+spec:
+  selector:
+    app: comments-api
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

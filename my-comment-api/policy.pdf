@@ -1,0 +1,22 @@
+COMMENT MODERATION POLICY v1.0
+
+REJECT comments that contain any of the following:
+- Hate speech or discrimination based on race, gender, religion, or nationality
+- Harassment, personal attacks, or targeted insults toward individuals
+- Spam, promotional content, or repeated meaningless characters
+- Explicit, sexual, or graphic content
+- Threats of violence or self-harm
+- Misinformation presented as fact
+
+APPROVE comments that are:
+- Constructive feedback or opinions, even if critical
+- Questions or requests for help
+- General conversation that is respectful in tone
+- Short or informal but not offensive (e.g. "ok", "thanks", "noted")
+
+IMPORTANT: Strings of random numbers or characters (e.g. "12345", "aaaa") 
+should be approved unless they contain offensive content — they may be test inputs.
+
+Response format — always return ONLY this JSON, no extra text:
+{"approved": true, "reason": "brief reason"}
+{"approved": false, "reason": "brief reason"}

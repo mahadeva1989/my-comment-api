@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="my-comment-api.Tests/my-comment-api.Tests.csproj" />
+  <Project Path="my-comment-api/my-comment-api.csproj" />
+  <Project Path="CommentApi.AppHost/CommentApi.AppHost.csproj" />
+</Solution>
