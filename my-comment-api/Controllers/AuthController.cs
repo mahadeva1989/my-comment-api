@@ -42,7 +42,7 @@ public class AuthController : ControllerBase
     }
 
     /// <summary>
-    /// Authenticates an existing user by username and password and returns an authentication token.
+    /// Authenticates an existing user with their username and password and returns an authentication token.
     /// </summary>
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginRequest request)
